@@ -112,13 +112,14 @@ class HtbShaper(AbstractShaper):
             "ceil {}Kbit".format(bandwidth.kilo_bps),
         ]
 
-        if bandwidth != upper_limit_rate:
-            command_item_list.extend(
-                [
-                    "burst {}KB".format(bandwidth.kilo_byte_per_sec),
-                    "cburst {}KB".format(bandwidth.kilo_byte_per_sec),
-                ]
-            )
+# REMOVE BURST
+#         if bandwidth != upper_limit_rate:
+#             command_item_list.extend(
+#                 [
+#                     "burst {}KB".format(bandwidth.kilo_byte_per_sec),
+#                     "cburst {}KB".format(bandwidth.kilo_byte_per_sec),
+#                 ]
+#             )
 
         run_command_helper(
             " ".join(command_item_list),
